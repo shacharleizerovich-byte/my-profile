@@ -1,0 +1,129 @@
+:root { 
+  --primary: #4f46e5; 
+  --bg: #f8fafc; 
+  --text: #1e293b; 
+}
+
+/* תיקון: כוכבית (*) במקום מקף (-) */
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+}
+
+body { 
+  margin: 0; 
+  font-family: system-ui, sans-serif; 
+  background: var(--bg); 
+  color: var(--text); 
+  line-height: 1.6; 
+}
+
+main { 
+  max-width: 900px; 
+  margin: 0 auto; 
+  padding: 2rem; 
+}
+
+.site-header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 1rem 2rem; 
+  background: white; 
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.08); 
+}
+
+.logo { 
+  font-weight: 700; 
+  color: var(--primary); 
+}
+
+nav { 
+  display: flex; 
+  gap: 1.5rem; 
+}
+
+nav a { 
+  color: var(--text); 
+  text-decoration: none; 
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav a:hover,
+nav a.active-link { 
+  color: var(--primary); 
+  font-weight: 700;
+}
+
+.hero { 
+  display: flex; 
+  align-items: center; 
+  gap: 2rem; 
+}
+
+.avatar { 
+  width: 120px; 
+  height: 120px; 
+  border-radius: 50%; 
+  background: var(--primary); 
+  color: white; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  font-size: 2.5rem; 
+  font-weight: 700; 
+  flex-shrink: 0; 
+}
+
+/* ---- תיבות ההרחבה שנפתחות מתחת ---- */
+.expand-box {
+  display: none;
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.06);
+  border-top: 4px solid var(--primary);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.expand-box.active {
+  display: block;
+}
+
+.expand-box h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.expand-box ul {
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- רספונסיביות למובייל ---- */
+@media (max-width: 600px) {
+  .site-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+}
